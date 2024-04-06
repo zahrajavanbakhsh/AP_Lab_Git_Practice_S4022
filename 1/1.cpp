@@ -6,13 +6,19 @@ using namespace std;
 
 class Person {
 public:
-	
+	Person():name("") , age(0){}
+	Person(int _age):name("") , age(_age){}
+	Person(string& _name):name(_name) , age(0){}
 	Person(const string& name) {
 		this->name = name;
 
 	}
+	~Person(){}
 	string& getName()  { return name; }
-
+	string getName()const{
+		return name;
+	}
+	friend void deletePerson(string name){}
 private:
 	string name;
 	int age;
@@ -57,6 +63,8 @@ public:
 	~Group() {
 		delete[] members;
 	}
+
+	friend bool isGroupFull(Group g){}
 
 private:
 	int size;
