@@ -38,9 +38,14 @@ ostream& operator<<(ostream& out, const Person& p) {
 	return out;
 }
 
-ostream& operator<<(ostream& out , const Group& g){
-	cout<<g;
-	return out; 
+ostream& operator<<(ostream& out, const Group& g) {
+    for (int i = 0; i < g.size; ++i) {
+        out << g.members[i];  // Assuming Person objects have an overloaded operator<< as well
+        if (i < g.size - 1) {
+            out << '\t';  // Separate each person with a tab
+        }
+    }
+    return out;
 }
 
 
@@ -107,6 +112,13 @@ public:
         }
         return *this;
     }
+	// ostream& operator<<(ostream& out){
+	// 		Group g;
+	// 	for(int i=0 ; i<g.cap; ++i) {
+	// 		cout<< members[i];
+	// 	}
+	// 	return out; 
+	// }
 
 	friend bool isGroupFull(Group g){}
 	friend ostream& operator<<(ostream& out , const Group& g){}
