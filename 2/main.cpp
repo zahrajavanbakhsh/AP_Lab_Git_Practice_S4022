@@ -10,6 +10,15 @@ using namespace std;
 #define SETSCORE(i) int score=rand()%20+1;/*no 0s*/\
 scores[i] = Score( score,("some string " + to_string(i)).c_str(),Score::Label(3-score/5)) ;
 
+void print(const Score& score){
+	cout<<"Hi member with"<< score.ID <<"id!"<< endl; 
+	cout<< "your score? \t score:"<<endl;
+	cout<< score.score<<endl;
+	cout<< "what is detail? \t detail:"<<endl;
+	cout<< score.detail<<endl;
+	cout<< "your label? \t label:"<<endl;
+	cout<< score.detail<<endl;
+}
 
 int main()
 {
